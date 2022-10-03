@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="container mt-5 display-4"><br>{{ _('Instructions:') }}</h1>
+
+
+{% for para in instruction_paragraphs %}
+<p class="lead text-justify">{{ para }}</p>
+{% endfor %}
+
+<br>
+<h3 class="row display-5 text-danger">{{ _('Notice!') }}</h3>
+<br>
+<div class="row lead">{{ _('If you wish to quit a rating task before it is fully completed, you can return to finish the task later but you will need your participant ID-number in order to do that. Please save your participant ID before starting the rating task!') }}</div>
+
+<br>
+<h4 class="row">{{ _('Your participant ID is:') }}&nbsp;<div class="text-danger"> {{ session['user'] }} </div></h4>
+
+<br>
+<a class="btn btn-primary" href="/task/1" role="button">{{ _('Ready to start') }}</a>
+
+{% endblock %}
+
+       

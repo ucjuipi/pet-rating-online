@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+  
+        
+      <h1 class="container mt-5 display-4 text-center"><br>Create new experiment: (4/4)</h1>
+        <br>
+      <p class="lead">Select the stimuli to be uploaded for the experiment. First select the stimulus type. If your are using text as a stimuli paste the texts to the textarea and mark
+      the end of each stimulus with a /n. If you are using images, audio or videofiles use the upload function and select all the stimuli at once from your computer and press submit.</p>
+
+
+
+{% from "_formhelpers.html" import render_field %}
+
+
+<form  id="UploadStimuliForm" action="" method="POST" role="form" enctype="multipart/form-data">
+
+
+    
+  <fieldset class="form-group">
+    <legend>1. Select stimulus type:</legend>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="type" id="text" value="text">
+        Text
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="type" id="picture" value="picture">
+        Images
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="type" id="video" value="video">
+        Video
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="type" id="audio" value="audio">
+        Audio
+      </label>
+    </div>
+
+  </fieldset>
+
+    <div class="form-group">
+    <legend>2. Use this box to upload text stimuli:</legend>
+      <label for="text_stimulus font-weight-bold">Example: text1 /n text2 /n text3</label>
+      <textarea class="form-control" rows="10" id="text" name="text"></textarea>
+    </div>
+
+    
+    <div class="input-group mb-3">
+    <legend>OR</legend>
+    <legend>2. Upload images, audio or videofiles here:</legend>
+  <div class="input-group-prepend">
+    <span class="input-group-text">Upload:</span>
+  </div>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="file" name="file" accept="audio/*,image/*, .mp4" multiple> 
+    <label class="custom-file-label" for="upload_file">Choose file</label>
+  </div>
+</div>
+
+    
+  <br>  
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+<script src="{{ url_for('static', filename='js/enable_button.js') }}" ></script>
+
+{% endblock %}

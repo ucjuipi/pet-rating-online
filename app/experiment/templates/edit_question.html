@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+  
+        
+<h1 class="container mt-5 display-4 text-center"><br>Edit question:</h1>
+  <br>  
+  <br>
+  <p class="lead">Edit this question
+  </p>
+
+    <div class=container"><br>
+    <div class="row align-items-center justify-content-center">
+    <div class="col-12">
+      <form  action="" method="post" role="form">
+        <div class="form-group">
+          <label for="Question">Question:</label>
+          <input type="text" class="form-control" id="question" name="question" placeholder= {{ form.question }}
+            <br>
+          <label for="Left scale">Left end of the scale:</label>
+          <input required type="text" class="form-control" id="left" name="left" placeholder= {{ form.left }}
+	    <br>
+	  <label for="Right scale">Right end of the scale:</label>
+	  <input required type="text" class="form-control" id="right" name="right" placeholder= {{ form.right }}
+	    <br>
+   	</div>
+        <br>													   
+          <button type="submit" class="btn btn-primary">Update</button>
+          <a class="btn btn-primary" href="{{ request.referrer }}" role="button">Cancel</a>
+          
+        
+   </form>
+
+
+{% endblock %}

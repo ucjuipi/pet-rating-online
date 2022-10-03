@@ -1,0 +1,281 @@
+# Greek translations for PROJECT.
+# Copyright (C) 2018 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2018-12-21 11:49+0200\n"
+"PO-Revision-Date: 2018-11-27 16:38+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: el\n"
+"Language-Team: el <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: app/forms.py:36
+msgid "Continue rating"
+msgstr "Συνεχίστε την εργασία βαθμολόγησης"
+
+#: app/forms.py:41
+msgid "Start rating"
+msgstr "Είμαι έτοιμος να ξεκινήσω"
+
+#: app/routes.py:371
+msgid "ID already in use"
+msgstr "ID που χρησιμοποιείται ήδη."
+
+#: app/routes.py:380
+msgid "No such ID set for this experiment"
+msgstr "Δεν έχει οριστεί τέτοιο αναγνωριστικό (ID) για αυτό το πείραμα."
+
+#: app/templates/base.html:35
+msgid "Task progress:"
+msgstr "Πρόοδος εργασιών"
+
+#: app/templates/begin_with_id.html:8
+msgid "Please insert your ID-code below:"
+msgstr "Παρακαλώ εισάγετε τον κωδικό σας εδω"
+
+#: app/templates/begin_with_id.html:12 app/templates/consent.html:38
+#: app/templates/instructions.html:12 app/templates/quit_task.html:4
+#: app/templates/quit_task.html:7
+msgid "Notice!"
+msgstr "Προσοχή!"
+
+#: app/templates/begin_with_id.html:13
+msgid ""
+"Participation in this experiment requires a login with a predetermined ID"
+" code. Please input ID below."
+msgstr "Η συμμετοχή σε αυτό το πείραμα απαιτεί σύνδεση με προκαθορισμένο κωδικό ταυτότητας. Εισαγάγετε το αναγνωριστικό παρακάτω."
+
+#: app/templates/consent.html:17
+msgid "Consent for participation:"
+msgstr "Συγκατάθεση για συμμετοχή:"
+
+#: app/templates/consent.html:20
+msgid "Research bulletin can be read here"
+msgstr "Mπορείτε να διαβάσετε τo ερευνητικό δελτίο εδώ."
+
+#: app/templates/consent.html:29
+msgid "Agree"
+msgstr "Συμφωνώ"
+
+#: app/templates/consent.html:30
+msgid "Disagree"
+msgstr "Διαφωνώ"
+
+#: app/templates/consent.html:41
+msgid ""
+"In order to participate for the study you need to agree with the terms "
+"presented."
+msgstr ""
+"Για να συμμετάσχετε στο πείραμα, πρέπει να αποδεχθείτε τους όρους "
+"συμμετοχής."
+
+#: app/templates/consent.html:44
+msgid "Close Notice"
+msgstr "Κλείσε την ενημέρωση"
+
+#: app/templates/consent.html:45 app/templates/task_completed.html:15
+msgid "Return Home"
+msgstr "Πίσω στην Αρχική Σελίδα"
+
+#: app/templates/continue_task.html:9
+msgid "Please insert your participant ID:"
+msgstr "Παρακαλώ εισάγετε τον  κωδικό αναγνώρισης σας"
+
+#: app/templates/index.html:18
+msgid "Welcome to the Human Emotion Systems -laboratory`s Onni-net laboratory! The experiments that are currently underway are listed below - you can participate for as many experiments you want."
+msgstr "Καλώς ήρθατε στο εργαστήριο συστημάτων των ανθρώπινων συναισθημάτων! Τα πειράματα που βρίσκονται σε εξέλιξη αναφέρονται παρακάτω - μπορείτε να συμμετάσχετε σε όσα πειράματα θέλετε."
+
+#: app/templates/index.html:20
+msgid ""
+"If you are participating for a study for the first time, click on the "
+"\"Begin task\" -button. If you are returning to continue \n"
+"      a previously started task, click on the \"Continue task\" button."
+msgstr "Εάν συμμετέχετε για μελέτη για πρώτη φορά, κάντε κλικ στο κουμπί \"Έναρξη εργασίας\". Εάν επιστρέφετε για να συνεχίσετε μια εργασία που έχει ήδη ξεκινήσει, κάντε κλικ στο κουμπί \"Συνέχεια\"."
+
+#: app/templates/index.html:23
+msgid ""
+"You can choose the language suitable for you from the language menu in "
+"the upper right corner."
+msgstr "Μπορείτε να επιλέξετε τη γλώσσα που σας αρμόζει από το μενού γλώσσας στην επάνω δεξιά γωνία."
+
+#: app/templates/index.html:29
+msgid "List of experiments:"
+msgstr "Κατάλογος πειραμάτων:"
+
+#: app/templates/index.html:36 app/templates/index.html:77
+msgid "Name:"
+msgstr "'Ονομα:"
+
+#: app/templates/index.html:37 app/templates/index.html:78
+msgid "Instruction:"
+msgstr "Οδηγία:"
+
+#: app/templates/index.html:50 app/templates/index.html:93
+msgid "Participation ID is required for this task."
+msgstr "Το ID συμμετοχής απαιτείται για αυτήν την εργασία"
+
+#: app/templates/index.html:56 app/templates/index.html:99
+msgid "Begin task"
+msgstr "Ξεκίνα την άσκηση"
+
+#: app/templates/index.html:57 app/templates/index.html:100
+msgid "Continue task"
+msgstr "Συνέχιση της εργασίας"
+
+#: app/templates/index.html:61 app/templates/index.html:104
+msgid "AdminRun"
+msgstr ""
+
+#: app/templates/index.html:62 app/templates/index.html:105
+msgid "Statistics"
+msgstr ""
+
+#: app/templates/index.html:63 app/templates/index.html:106
+msgid "View / Edit"
+msgstr ""
+
+#: app/templates/instructions.html:4
+msgid "Instructions:"
+msgstr "Οδηγία:"
+
+#: app/templates/instructions.html:14
+msgid ""
+"If you wish to quit a rating task before it is fully completed, you can "
+"return to finish the task later but you will need your participant ID-"
+"number in order to do that. Please save your participant ID before "
+"starting the rating task!"
+msgstr ""
+"Αν θέλετε να τερματίσετε μια εργασία βαθμολόγησης πριν ολοκληρωθεί, "
+"μπορείτε να επιστρέψετε για να ολοκληρώσετε την εργασία αργότερα, αλλά θα"
+" χρειαστείτε τον κωδικό αναγνώρισης του συμμετέχοντα για να το κάνετε "
+"αυτό. Αποθηκεύστε τον κωδικό αναγνώρισης πριν ξεκινήσετε την εργασία "
+"αξιολόγησης!"
+
+#: app/templates/instructions.html:17 app/templates/quit_task.html:11
+msgid "Your participant ID is:"
+msgstr "Ο κωδικός αναγνώρισης σας είναι"
+
+#: app/templates/instructions.html:20
+msgid "Ready to start"
+msgstr "Είμαι έτοιμος να ξεκινήσω"
+
+#: app/templates/quit_task.html:8
+msgid ""
+"Please write down your participant ID so you can return and finish the "
+"rating task later!"
+msgstr ""
+"Παρακαλώ αποθηκεύστε τον κωδικό αναγνώρισης σας έτσι ώστε να μπορείτε να "
+"γυρίσετε και να συνεχίσετε την  εργασία βαθμολόγησης αργότερα!"
+
+#: app/templates/quit_task.html:14
+msgid "Quit!"
+msgstr "Εγκαταλείπω την εργασία"
+
+#: app/templates/register.html:6
+msgid "This is the registration page."
+msgstr "Αυτή είναι η σελίδα εγγραφής"
+
+#: app/templates/register.html:7
+msgid "Please fill in these background questions before starting the rating task:"
+msgstr ""
+"Παρακαλώ απαντήστε σε αυτές τις εισαγωγικές ερωτήσεις πριν ξεκινήσετε την"
+" εργασία"
+
+#: app/templates/register.html:14
+msgid "Please select"
+msgstr "Παρακαλώ επιλέξτε"
+
+#: app/templates/register.html:22
+msgid "Submit"
+msgstr "Υποβολή"
+
+#: app/templates/task.html:143
+msgid "Quit task"
+msgstr "Εγκαταλείπω την εργασία"
+
+#: app/templates/task.html:144
+msgid "Next page"
+msgstr "Επόμενη σελίδα"
+
+#: app/templates/task.html:148
+msgid ""
+"You can zoom in/out the page view by pressing ctrl+/ctrl- (Windows) or "
+"⌘+/⌘- (Mac)"
+msgstr "Μπορείτε να κάνετε μεγέθυνση / σμίκρυνση της προβολής σελίδας πατώντας ctrl + / ctrl- (Windows) ή ⌘ + / ⌘- (Mac)"
+
+#: app/templates/task_completed.html:7
+msgid "Task completed!"
+msgstr "Η εργασία ολοκληρώθηκε!"
+
+#: app/templates/task_completed.html:11
+msgid "You have completed the rating task. Thank you for your participation."
+msgstr ""
+"‘Εχετε ολοκληρώσει την εργασία βαθμολόγησης. Σας ευχαριστούμε για τη "
+"συμμετοχή σας "
+
+#: app/templates/test_page.html:7
+msgid "File Not Found"
+msgstr ""
+
+#~ msgid "ID number:"
+#~ msgstr ""
+
+#~ msgid "Language:"
+#~ msgstr ""
+
+#~ msgid "Status:"
+#~ msgstr ""
+
+#~ msgid "Welcome to Onni"
+#~ msgstr "Καλώς ήρθατε"
+
+#~ msgid ""
+#~ "This is the Human Emotion Systems "
+#~ "laboratorys stimulus rating tool. If you"
+#~ " have previously started a rating "
+#~ "task you can continue that task on"
+#~ " this page. If you are a "
+#~ "researcher you can create new rating "
+#~ "tasks by logging in. Or you can"
+#~ " start a new rating task and "
+#~ "start rating by selecting a task "
+#~ "from the database list below."
+#~ msgstr ""
+#~ "Αυτό είναι το εργαλείο βαθμολόγησης των"
+#~ " ερεθισμάτων του εργαστηρίου των ανθρώπινων"
+#~ " συναισθημάτων. Εάν έχετε ήδη ξεκινήσει "
+#~ "μια εργασία βαθμολόγησης, μπορείτε να "
+#~ "συνεχίσετε την εργασία αυτή σε αυτή "
+#~ "τη σελίδα. Αν είστε ερευνητής, μπορείτε"
+#~ " να δημιουργήσετε νέες εργασίες αξιολόγησης"
+#~ " συνδεόμενοι με το σύστημα. Ή "
+#~ "μπορείτε να ξεκινήσετε μια νέα "
+#~ "αξιολόγηση και να ξεκινήσετε την "
+#~ "αξιολόγηση επιλέγοντας μια εργασία αξιολόγησης"
+#~ " από την παρακάτω λίστα βάσης "
+#~ "δεδομένων"
+
+#~ msgid ""
+#~ "You can choose the language suitable "
+#~ "for you from the language menu in"
+#~ " the upper right corner"
+#~ msgstr ""
+
+#~ msgid "List of experiments in database:"
+#~ msgstr "Λίστα των πειραμάτων"
+
+#~ msgid "Research bulletin can be read"
+#~ msgstr ""
+
+#~ msgid "here."
+#~ msgstr ""
+

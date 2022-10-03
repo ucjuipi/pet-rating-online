@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="container mt-5 display-4"><br>{{ _('Notice!') }}</h1>
+
+<br>
+<h3 class="row display-5 text-danger">{{ _('Notice!') }}</h3>
+<div class="row lead">{{ _('Please write down your participant ID so you can return and finish the rating task later!') }}</div>
+
+<br>
+<h4 class="row">{{ _('Your participant ID is:') }}&nbsp;<div class="text-danger"> {{ user_id }} </div></h4>
+
+<br>
+<a class="btn btn-primary" href="/" role="button">{{ _('Quit!') }}</a>
+
+{% endblock %}

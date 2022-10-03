@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="container stimulus">
+    <div class="row justify-content-center">
+
+        {% if session['randomization']=='Off' %}
+
+        {% if session['type']=='text' %}
+        <div class="container text-center mt-5 pt-5">
+            {% for page in pages.items %}
+            <h{{ stimulus_size_text }} class="text-center mt-5"><br>{{ page.text }}</h{{ stimulus_size_text }}>
+            {% endfor %}
+        </div>
+        <br><br>
+        {% endif %}
+
+        {% if session['type']=='picture' %}
+        <div class="stimulus col-{{stimulus_size}} mt-5 pt-5">
+            {% for page in pages.items %}
+            <img src="/{{ page.media }}" class="img-fluid">
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if session['type']=='video' %}
+        <div class="col-{{stimulus_size}} container stimulus mt-5 pt-5">
+            {% for page in pages.items %}
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="/{{ page.media }}" allowfullscreen></iframe>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if session['type']=='audio' %}
+        <div class="col-{{stimulus_size}} container stimulus mt-5 pt-5">
+            {% for page in pages.items %}
+            <div class="embed-responsive embed-responsive-16by9">
+                <audio class="embed-responsive-item" controls autoplay>
+                    <source src="/{{ page.media }}">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% else %}
+
+        {% if session['type']=='text' %}
+        <div class="container text-center mt-5 pt-5">
+            {% for page in pages.items %}
+            <h{{ stimulus_size_text }} class="text-center mt-5"><br>{{ randomized_stimulus.text }}
+            </h{{ stimulus_size_text }}>
+            {% endfor %}
+        </div>
+        <br><br>
+        {% endif %}
+
+        {% if session['type']=='picture' %}
+        <div class="stimulus col-{{stimulus_size}} mt-5 pt-5">
+            {% for page in pages.items %}
+            <img src="/{{ randomized_stimulus.media }}" class="img-fluid">
+            {% endfor %}
+
+
+        </div>
+        {% endif %}
+
+        {% if session['type']=='video' %}
+        <div class="col-{{stimulus_size}} container stimulus mt-5 pt-5">
+            {% for page in pages.items %}
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="/{{ randomized_stimulus.media }}" allowfullscreen></iframe>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if session['type']=='audio' %}
+        <div class="col-{{stimulus_size}} container stimulus mt-5 pt-5">
+            {% for page in pages.items %}
+            <div class="embed-responsive embed-responsive-16by9">
+                <audio class="embed-responsive-item" controls autoplay>
+                    <source src="/{{ randomized_stimulus.media }}">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% endif %}
+
+        {% if form.__name__ == 'embody' %}
+        <div class="col-4 mt-5 pt-5">
+            <div class="canvas-container">
+                <span class="canvas-info"></span>
+                <canvas id="embody-canvas" class="crosshair" width="20" height="20"></canvas>
+            </div>
+
+            {% for embody_question in embody_questions %}
+            <img id="idembody-{{embody_question.idembody}}"
+                class="embody-image {% if loop.last %}last-embody{% endif %} {% if loop.index != 1 %}hidden{% else %}selected-embody{% endif %}"
+                src={{ embody_question.picture }} />
+            {% endfor %}
+
+            {% for embody_question in embody_questions %}
+            <p id="idquestion-{{ embody_question.idembody }}"
+                class="embody-question {% if loop.index != 1 %}hidden{% else %}selected-embody{% endif %}">
+                {{ embody_question.question }}</p>
+            {% endfor %}
+
+            <img id="baseImageMask" class="hidden" src={{ url_for('static', filename='img/dummy_600_mask.png') }} />
+
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+
+<br>
+<h4 class="text-center">{{ rating_instruction }}</h4>
+
+<!-- Select form type -->
+
+{% if form.__name__ == 'embody' %}
+
+
+
+<form id="canvas-form" class="form-group mt-5" action="/task/embody/{{ page_num }}" method="post">
+
+    <input id="canvas-data" type="hidden" value="" name="coordinates">
+
+    <div class="form-row text-center">
+        <div class="centered col-12">
+            <button type="button" class="btn btn-primary clear-button">Clear</button>
+        </div>
+    </div>
+
+    <div class="form-row text-center">
+        <div class="centered col-12">
+            <a class="btn btn-primary" href={{ url_for('task.quit') }} role="button">{{ _('Quit task') }}</a>
+            <button type="button" class="btn btn-primary next-page">{{ _('Next page') }}</button>
+        </div>
+        <div class="col-12">
+            <br>
+            <p>{{ _("Reload the page if canvas didn't appear") }} </p>
+            <p>{{ _('You can zoom in/out the page view by pressing ctrl+/ctrl- (Windows) or ⌘+/⌘- (Mac)') }} </p>
+        </div>
+    </div>
+</form>
+
+<script src="{{ url_for('static', filename='js/canvas.js') }}"></script>
+
+{% elif form.__name__ == 'slider' %}
+
+<form class="form-group mt-5" action="/task/question/{{ page_num }}" method="post">
+    {% for category in form.categories1 %}
+    {% for scale in form.categories1[category] %}
+    <div class="row form-group mt-0 mb-0">
+        <h6 class="col-3 text-right mt-0 mb-0">
+            {{ scale[0] }}
+        </h6>
+        <h6 class="col text-center mt-0 mb-0">
+            <label for="customRange">{{ category[1] }}</label>
+            <input type="range" class="custom-range" id="customRange" name={{ category[0] }}>
+        </h6>
+        <h6 class="col-3 text-left mt-0 mb-0">
+            {{ scale[1] }}
+        </h6>
+    </div>
+    {% endfor %}
+    {% endfor %}
+    <div class="form-row text-center">
+        <div class="col-12">
+            <a class="btn btn-primary" href={{ url_for('task.quit') }} role="button">{{ _('Quit task') }}</a>
+            <button type="submit" class="btn btn-primary">{{ _('Next page') }}</button>
+        </div>
+        <div class="col-12">
+            <br>
+            <p>{{ _('You can zoom in/out the page view by pressing ctrl+/ctrl- (Windows) or ⌘+/⌘- (Mac)') }} </p>
+        </div>
+    </div>
+</form>
+
+{% endif %}
+
+{% endblock %}

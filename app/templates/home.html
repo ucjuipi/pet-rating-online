@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container text-center col-4 mt-5 pt-5">
+  <img
+    class="img-fluid"
+    src="/static/img/onni_LOGO-RGB-transparent_bg_cut.png"
+    alt="Logo"
+  />
+</div>
+
+<p class="lead text-center mt-5 font-weight-bold">
+  {{ _('Select the research group whose experiments you want to participate
+  in.')}}
+</p>
+
+<p class="lead text-center mt-5">{{ _('Research groups:') }}</p>
+
+<div class="squares">
+  {% for group in groups %}
+  <a href="{{group.tag}}" class="boxed-link">{{ group.name }}</a>
+  {% endfor %}
+</div>
+
+{% endblock %}

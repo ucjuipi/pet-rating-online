@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="container mt-5 display-4 text-center"><br>Add more stimuli:</h1>
+<br>
+<p class="lead"></p>
+  {% from "_formhelpers.html" import render_field %}
+  <form  id="EditPageForm" action="" method="POST" role="form" enctype="multipart/form-data">
+  {% if stimulus_type == 'text' %}
+    <div class="form-group">
+    <legend>Paste the new texts to the textarea and mark the end of each stimulus with a /n. Do not place the marker at the end of the last text. Example: Text1/n Text2/n Text3</legend>
+    <textarea class="form-control" rows="10" id="text" name="text"></textarea>
+    </div>
+  {% endif %}
+  {% if stimulus_type == 'video' or stimulus_type == 'audio' or stimulus_type == 'picture'  %}
+    <div class="input-group mb-3">
+    <legend>Add files:</legend>
+    <div class="input-group-prepend">
+    <span class="input-group-text">Upload:</span>
+    </div>
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="file" name="file" accept="audio/*,image/*, .mp4" multiple> 
+      <label class="custom-file-label" for="upload_file">Choose file</label>
+    </div>
+    </div>
+  {% endif %}
+  
+  <input style="display:none;" type="radio" name="type" value="{{ stimulus_type }}" checked >
+
+  <br>  
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <a class="btn btn-primary" href="{{ request.referrer }}" role="button">Cancel</a>
+</form>
+
+<script src="{{ url_for('static', filename='js/enable_button.js') }}" ></script>
+
+{% endblock %}
+
+

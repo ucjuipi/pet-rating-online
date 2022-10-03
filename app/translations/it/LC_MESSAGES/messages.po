@@ -1,0 +1,255 @@
+# Italian translations for PROJECT.
+# Copyright (C) 2018 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2018-12-21 11:49+0200\n"
+"PO-Revision-Date: 2018-11-27 16:38+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: it\n"
+"Language-Team: it <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: app/forms.py:36
+msgid "Continue rating"
+msgstr "Continuare a valutare"
+
+#: app/forms.py:41
+msgid "Start rating"
+msgstr "Cominciare la valutazione"
+
+#: app/routes.py:371
+msgid "ID already in use"
+msgstr "ID già in uso"
+
+#: app/routes.py:380
+msgid "No such ID set for this experiment"
+msgstr "Nessun ID impostato per questo esperimento"
+
+#: app/templates/base.html:35
+msgid "Task progress:"
+msgstr "Progresso del processo:"
+
+#: app/templates/begin_with_id.html:8
+msgid "Please insert your ID-code below:"
+msgstr "Prego, inserire il codice ID qui sotto:"
+
+#: app/templates/begin_with_id.html:12 app/templates/consent.html:38
+#: app/templates/instructions.html:12 app/templates/quit_task.html:4
+#: app/templates/quit_task.html:7
+msgid "Notice!"
+msgstr "Attenzione!"
+
+#: app/templates/begin_with_id.html:13
+msgid ""
+"Participation in this experiment requires a login with a predetermined ID"
+" code. Please input ID below."
+msgstr "La partecipazione in questo esperimento richiede un login con un codice-ID predeterminato. Per favore inserire l'ID qui sotto."
+
+#: app/templates/consent.html:17
+msgid "Consent for participation:"
+msgstr "Acconsento alla partecipazione:"
+
+#: app/templates/consent.html:20
+msgid "Research bulletin can be read here"
+msgstr "Il bollettino della ricerca può essere letto qui."
+
+#: app/templates/consent.html:29
+msgid "Agree"
+msgstr "Consento"
+
+#: app/templates/consent.html:30
+msgid "Disagree"
+msgstr "Non consento"
+
+#: app/templates/consent.html:41
+msgid ""
+"In order to participate for the study you need to agree with the terms "
+"presented."
+msgstr "Per partecipare allo studio deve consentire ai termini presentati"
+
+#: app/templates/consent.html:44
+msgid "Close Notice"
+msgstr "Chiudere l'avviso"
+
+#: app/templates/consent.html:45 app/templates/task_completed.html:15
+msgid "Return Home"
+msgstr "Ritornare alla Home"
+
+#: app/templates/continue_task.html:9
+msgid "Please insert your participant ID:"
+msgstr "Per favore inserisca il suo ID di partecipazione:"
+
+#: app/templates/index.html:18
+msgid "Welcome to the Human Emotion Systems -laboratory`s Onni-net laboratory! The experiments that are currently underway are listed below - you can participate for as many experiments you want."
+msgstr "Benvenuto al laboratorio Onni-net del laboratorio di sistemi di emozioni umane (Human Emotion Systems)! Gli esperimenti che sono attivi al momento sono listati qui sotto - può partecipare a quanti e quali esperimenti vuole."
+
+#: app/templates/index.html:20
+msgid ""
+"If you are participating for a study for the first time, click on the "
+"\"Begin task\" -button. If you are returning to continue \n"
+"      a previously started task, click on the \"Continue task\" button."
+msgstr "Se partecipa ad uno studio per la prima volta, clicchi sul bottone \"Comincia processo\". Se sta ritornando per continuare un processo cominciato precedentemente, clicchi sul bottone \"Continua processo\"."
+
+#: app/templates/index.html:23
+msgid ""
+"You can choose the language suitable for you from the language menu in "
+"the upper right corner."
+msgstr "Può scegliere la lingua preferita dal menu del linguaggio nell'angolo in alto a destra."
+
+#: app/templates/index.html:29
+msgid "List of experiments:"
+msgstr "Lista degli esperimenti:"
+
+#: app/templates/index.html:36 app/templates/index.html:77
+msgid "Name:"
+msgstr "Nome:"
+
+#: app/templates/index.html:37 app/templates/index.html:78
+msgid "Instruction:"
+msgstr "Istruzione:"
+
+#: app/templates/index.html:50 app/templates/index.html:93
+msgid "Participation ID is required for this task."
+msgstr "L'ID di partecipazione è richiesto per questo processo."
+
+#: app/templates/index.html:56 app/templates/index.html:99
+msgid "Begin task"
+msgstr "Cominciare il processo"
+
+#: app/templates/index.html:57 app/templates/index.html:100
+msgid "Continue task"
+msgstr "Continuare il processo"
+
+#: app/templates/index.html:61 app/templates/index.html:104
+msgid "AdminRun"
+msgstr ""
+
+#: app/templates/index.html:62 app/templates/index.html:105
+msgid "Statistics"
+msgstr ""
+
+#: app/templates/index.html:63 app/templates/index.html:106
+msgid "View / Edit"
+msgstr ""
+
+#: app/templates/instructions.html:4
+msgid "Instructions:"
+msgstr "Istruzioni"
+
+#: app/templates/instructions.html:14
+msgid ""
+"If you wish to quit a rating task before it is fully completed, you can "
+"return to finish the task later but you will need your participant ID-"
+"number in order to do that. Please save your participant ID before "
+"starting the rating task!"
+msgstr "Se vuole uscire dal processo di valutazione prima che sia pienamente completato, può ritornare a completare il process più tardi, ma avrà bisogno del suo ID per farlo. Per favore memorizzare o appuntarsi l'ID di partecipazione prima di cominciare il processo di valutazione!"
+
+#: app/templates/instructions.html:17 app/templates/quit_task.html:11
+msgid "Your participant ID is:"
+msgstr "Il suo ID di partecipazione è:"
+
+#: app/templates/instructions.html:20
+msgid "Ready to start"
+msgstr "Pronto a partire"
+
+#: app/templates/quit_task.html:8
+msgid ""
+"Please write down your participant ID so you can return and finish the "
+"rating task later!"
+msgstr "Per favore si appunti il suo ID di partecipazione di modo da poter ritornare e completare il processo di valutazione più tardi."
+
+#: app/templates/quit_task.html:14
+msgid "Quit!"
+msgstr "Esci!"
+
+#: app/templates/register.html:6
+msgid "This is the registration page."
+msgstr "Questa è la pagina di registrazione"
+
+#: app/templates/register.html:7
+msgid "Please fill in these background questions before starting the rating task:"
+msgstr "Completare queste domande sul suo passato"
+
+#: app/templates/register.html:14
+msgid "Please select"
+msgstr "Selezionare per favore"
+
+#: app/templates/register.html:22
+msgid "Submit"
+msgstr "Completa (manda per considerazione)"
+
+#: app/templates/task.html:143
+msgid "Quit task"
+msgstr "Esci dal processo"
+
+#: app/templates/task.html:144
+msgid "Next page"
+msgstr "Prossima pagina"
+
+#: app/templates/task.html:148
+msgid ""
+"You can zoom in/out the page view by pressing ctrl+/ctrl- (Windows) or "
+"⌘+/⌘- (Mac)"
+msgstr "Si può cambiare lo zoom della visualizzazione della pagina premendo ctrl+/ctrl- (Windows) oppure ⌘+/⌘- (Mac)"
+
+#: app/templates/task_completed.html:7
+msgid "Task completed!"
+msgstr "Processo completato!"
+
+#: app/templates/task_completed.html:11
+msgid "You have completed the rating task. Thank you for your participation."
+msgstr "Il processo di valutazione è stato completo. Grazie per la partecipazione."
+
+#: app/templates/test_page.html:7
+msgid "File Not Found"
+msgstr ""
+
+#~ msgid "ID number:"
+#~ msgstr ""
+
+#~ msgid "Language:"
+#~ msgstr ""
+
+#~ msgid "Status:"
+#~ msgstr ""
+
+#~ msgid "Welcome to Onni"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This is the Human Emotion Systems "
+#~ "laboratorys stimulus rating tool. If you"
+#~ " have previously started a rating "
+#~ "task you can continue that task on"
+#~ " this page. If you are a "
+#~ "researcher you can create new rating "
+#~ "tasks by logging in. Or you can"
+#~ " start a new rating task and "
+#~ "start rating by selecting a task "
+#~ "from the database list below."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can choose the language suitable "
+#~ "for you from the language menu in"
+#~ " the upper right corner"
+#~ msgstr ""
+
+#~ msgid "List of experiments in database:"
+#~ msgstr ""
+
+#~ msgid "Research bulletin can be read"
+#~ msgstr ""
+
+#~ msgid "here."
+#~ msgstr ""
+

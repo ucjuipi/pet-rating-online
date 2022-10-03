@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="container mt-5 display-4 text-left"><br>Experiment info:</h1>
+<br>
+
+
+{% for exp in experiment_info %}
+
+<table class="table">
+  <tbody>
+    <tr>
+      <td>Name:</td>
+      <td>{{ exp.name }}</td>
+    </tr>
+    <tr>
+      <td>ID:</td>
+      <td>{{ exp.idexperiment }}</td>
+    </tr>
+    <tr>
+      <td>Language:</td>
+      <td>{{ exp.language }}</td>
+    </tr>
+    <tr>
+      <td>Status:</td>
+      <td>{{ exp.status }}</td>
+    </tr>
+    <tr>
+      <td>Instructions:</td>
+      <td>{{ exp.instruction }}</td>
+    </tr>
+    <tr>
+      <td>Number of started ratings:</td>
+      <td>{{ started_ratings }}</td>
+    </tr>
+    <tr>
+      <td>Number of finished ratings:</td>
+      <td>{{ finished_ratings }}
+
+
+        <button data-value="{{ exp.idexperiment }}" class="btn btn-primary float-right get-csv-results">
+
+          export results
+
+        </button>
+
+        <div id="export-link-container" class="hidden">
+          <a id="export-link" class="float-right"
+            href="{{ url_for('experiment.download_csv', exp_id=exp.idexperiment) }}" role="button"></a>
+          <p id="export-error"></p>
+        </div>
+
+
+        <div class="progress hidden">
+          <div id="export-results-bar" class="progress-bar progress-bar-striped progress-bar-animated"
+            role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+          </div>
+        </div>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+{% endfor %}
+
+<h1 class="container mt-5 display-6 text-left"><br>Slider question headers:</h1>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" nowrap>Question ID:</td>
+      <th scope="col" nowrap>Question:</th>
+      <th scope="col" nowrap>Left scale</th>
+      <th scope="col" nowrap>Right scale</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for q in question_headers %}
+    <tr>
+      <td>{{ q.idquestion }}</td>
+      <td>{{ q.question }}</td>
+      <td>{{ q.left }}</td>
+      <td>{{ q.right }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+<h1 class="container mt-5 display-6 text-left"><br>Slider question answers: (Page ID/Question ID)</h1>
+<br>
+
+
+<table class="table">
+  <thead>
+
+    <tr>
+      <th scope="col" nowrap>Participant ID:</th>
+      {% for page in pages_and_questions %}
+
+      {% for p in pages_and_questions[page] %}
+      <th scope="col" nowrap>{{ p[0]}}/{{ p[1]}}</th>
+      {% endfor %}
+
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for participant in participants_and_answers %}
+    <tr>
+      {% if participant == 'mean' %}
+      <td><b>{{ participant }}</b></td>
+      {% else  %}
+      <td>{{ participant }}</td>
+      {% endif  %}
+      {% for answer in participants_and_answers[participant] %}
+      <td>{{ answer }}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+
+<h1 class="container mt-5 display-6 text-left"><br>Embody pictures and answers:</h1>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th style="width:25%;%" scope="col" nowrap>Stimulus:</td>
+      <th style="width:25%;%" scope="col" nowrap>Picture:</th>
+      <th style="width:25%;%" scope="col" nowrap>Description:</th>
+      <th style="width:25%;%" scope="col" nowrap></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for s in stimulus_headers %}
+    {% for embody_picture in embody_questions %}
+    <tr>
+
+      {% if s.type == 'text' %}
+      <td>{{ s.text }}</td>
+      {% elif s.type == 'picture' %}
+      <td><img src="/{{ s.media }}" class="thumbnail" /></td>
+      {% elif s.type == 'video' %}
+      <td>
+        <div class="embed-responsive embed-responsive-16by9 ">
+          <iframe class="embed-responsive-item thumbnail" src="/{{ s.media }}" allowFullScreen></iframe>
+        </div>
+      </td>
+      {% elif s.type == 'audio' %}
+      <td>
+        <div class="embed-responsive embed-responsive-16by9 ">
+          <audio class="embed-responsive-item thumbnail" controls>
+            <source src="/{{ s.media }}">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </td>
+      {% else %}
+      <td>{{ s.text }}</td>
+      {% endif %}
+
+      <td><img src="{{ embody_picture.picture }}" class="thumbnail" /></td>
+      <td>{{ embody_picture.question }}</td>
+
+      <td>
+        <button data-value="{{ s.idpage }}-{{ embody_picture.idembody }}" class="btn btn-primary embody-get-drawing">
+          <span class="spinner-border spinner-border-sm hidden"></span>
+          Draw
+        </button>
+      </td>
+
+    </tr>
+    {% endfor %}
+    {% endfor %}
+  </tbody>
+</table>
+
+
+<div class="progress hidden" id="plotted-image">
+  <div id="image-loading-progress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+    aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+    <!-- Creating image... -->
+  </div>
+</div>
+<img class="embody-image-container">
+
+
+
+<h1 class="container mt-5 display-6 text-left"><br>Background question answers:</h1>
+<br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" nowrap>Participant</th>
+
+      {% for bg in bg_questions %}
+      <th scope="col" nowrap>{{ bg.background_question }}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in bg_answers_for_participants %}
+    <tr>
+      <td>{{ p }}</td>
+      {% for bg_answer in bg_answers_for_participants[p] %}
+      <td align="center">{{ bg_answer }}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+
+
+  </tbody>
+</table>
+
+<script src="{{ url_for('static', filename='lib/js/socket.io.js') }}"></script>
+<script src="{{ url_for('static', filename='js/urls.js') }}"></script>
+<script src="{{ url_for('static', filename='js/getDrawing.js') }}"></script>
+<script src="{{ url_for('static', filename='js/getCSV.js') }}"></script>
+
+{% endblock %}

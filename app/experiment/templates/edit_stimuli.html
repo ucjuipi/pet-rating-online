@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="container mt-5 display-4 text-center"><br>Edit stimulus:</h1>
+<br>
+<p class="lead"></p>
+  {% from "_formhelpers.html" import render_field %}
+  <form  id="EditPageForm" action="" method="POST" role="form" enctype="multipart/form-data">
+  {% if edit_page.type == 'text' %}
+    <div class="form-group">
+    <legend>Modify this text:</legend>
+    <textarea class="form-control" rows="10" id="text" name="text" placeholder={{ form.text }}
+    </textarea>
+    </div>
+  {% else %}
+    <div class="input-group mb-3">
+    <legend>Replace current file:<br> {{ edit_page.media }}</legend>
+    <div class="input-group-prepend">
+    <span class="input-group-text">Upload:</span>
+    </div>
+    <div class="custom-file">
+    <input type="file" class="custom-file-input" id="file" name="file" accept="audio/*,video/*,image/*" required> 
+    <label class="custom-file-label" for="upload_file">Choose file</label>
+    </div>
+    </div>
+  {% endif %}    
+   <br>  
+
+  <!-- this should be added in order to get the right stimulus type to database.. stimulus_type is not defined yet -->
+  <input style="display:none;" type="radio" name="type" value="{{ stimulus_type }}" checked >
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <a class="btn btn-primary" href="{{ request.referrer }}" role="button">Cancel</a>
+
+</form>
+
+<script src="{{ url_for('static', filename='js/enable_button.js') }}" ></script>
+
+{% endblock %}
+

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+  
+        
+<h1 class="container mt-5 display-4 text-center"><br>Remove experiment:</h1>
+  <br>  
+  <br>
+  <p class="lead text-center">Confirm that you wish to remove the experiment by writing "DELETE" on the text field below and press submit. <br><br>
+  Notice!- All experiment files will be lost, including data collected from participants.
+  Be sure to export your data before deleting experiments.
+  </p>
+
+    <div class=container"><br>
+    <div class="row align-items-center justify-content-center">
+    <div class="col-4 text-center">
+      <form  action="" method="post" role="form">
+        <div class="form-group">
+          <label for="Remove"></label>
+          <input type="text" class="form-control" id="remove" name="remove" required>
+          <br>
+          <button type="submit" class="btn btn-primary">Remove</button>
+          <a class="btn btn-primary" href="{{ url_for('experiment.view', exp_id=exp_id) }}" role="button">Cancel</a>
+   </form>
+
+
+{% endblock %}

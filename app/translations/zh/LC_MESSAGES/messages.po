@@ -1,0 +1,255 @@
+# Chinese translations for PROJECT.
+# Copyright (C) 2018 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2018-12-21 11:49+0200\n"
+"PO-Revision-Date: 2018-11-27 16:38+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: app/forms.py:36
+msgid "Continue rating"
+msgstr "继续评分"
+
+#: app/forms.py:41
+msgid "Start rating"
+msgstr "我准备开始了"
+
+#: app/routes.py:371
+msgid "ID already in use"
+msgstr "用户名已被使用"
+
+#: app/routes.py:380
+msgid "No such ID set for this experiment"
+msgstr "该实验中用户名不存在"
+
+#: app/templates/base.html:35
+msgid "Task progress:"
+msgstr "任务进行中"
+
+#: app/templates/begin_with_id.html:8
+msgid "Please insert your ID-code below:"
+msgstr "请输入您的参与者ID："
+
+#: app/templates/begin_with_id.html:12 app/templates/consent.html:38
+#: app/templates/instructions.html:12 app/templates/quit_task.html:4
+#: app/templates/quit_task.html:7
+msgid "Notice!"
+msgstr "注意！"
+
+#: app/templates/begin_with_id.html:13
+msgid ""
+"Participation in this experiment requires a login with a predetermined ID"
+" code. Please input ID below."
+msgstr "参加本实验需要用已有的用户名登陆，请输入用户名"
+
+#: app/templates/consent.html:17
+msgid "Consent for participation:"
+msgstr "实验须知"
+
+#: app/templates/consent.html:20
+msgid "Research bulletin can be read here"
+msgstr "实验条目可在下面读取"
+
+#: app/templates/consent.html:29
+msgid "Agree"
+msgstr "同意"
+
+#: app/templates/consent.html:30
+msgid "Disagree"
+msgstr "不同意"
+
+#: app/templates/consent.html:41
+msgid ""
+"In order to participate for the study you need to agree with the terms "
+"presented."
+msgstr "要参与本研究，您需要同意所提供的条款。"
+
+#: app/templates/consent.html:44
+msgid "Close Notice"
+msgstr "关闭通知"
+
+#: app/templates/consent.html:45 app/templates/task_completed.html:15
+msgid "Return Home"
+msgstr "返回主页"
+
+#: app/templates/continue_task.html:9
+msgid "Please insert your participant ID:"
+msgstr "请输入您的参与者ID："
+
+#: app/templates/index.html:18
+msgid "Welcome to the Human Emotion Systems -laboratory`s Onni-net laboratory! The experiments that are currently underway are listed below - you can participate for as many experiments you want."
+msgstr "欢迎来到人类情感系统实验室。可以参加的实验项目被列在以下。 你可以随心所欲参加任何实验"
+
+#: app/templates/index.html:20
+msgid ""
+"If you are participating for a study for the first time, click on the "
+"\"Begin task\" -button. If you are returning to continue \n"
+"      a previously started task, click on the \"Continue task\" button."
+msgstr "如果你是第一次参与该实验，请按“开始任务”按钮。如果你继续上次的任务，请按“继续任务”按钮。"
+
+#: app/templates/index.html:23
+msgid ""
+"You can choose the language suitable for you from the language menu in "
+"the upper right corner."
+msgstr "你可以在屏幕右上角的语言菜单选择你习惯的语言"
+
+#: app/templates/index.html:29
+msgid "List of experiments:"
+msgstr "实验列表："
+
+#: app/templates/index.html:36 app/templates/index.html:77
+msgid "Name:"
+msgstr "名字："
+
+#: app/templates/index.html:37 app/templates/index.html:78
+msgid "Instruction:"
+msgstr "说明："
+
+#: app/templates/index.html:50 app/templates/index.html:93
+msgid "Participation ID is required for this task."
+msgstr "本任务需要用户名。"
+
+#: app/templates/index.html:56 app/templates/index.html:99
+msgid "Begin task"
+msgstr "开始任务"
+
+#: app/templates/index.html:57 app/templates/index.html:100
+msgid "Continue task"
+msgstr "继续任务"
+
+#: app/templates/index.html:61 app/templates/index.html:104
+msgid "AdminRun"
+msgstr ""
+
+#: app/templates/index.html:62 app/templates/index.html:105
+msgid "Statistics"
+msgstr ""
+
+#: app/templates/index.html:63 app/templates/index.html:106
+msgid "View / Edit"
+msgstr ""
+
+#: app/templates/instructions.html:4
+msgid "Instructions:"
+msgstr "说明："
+
+#: app/templates/instructions.html:14
+msgid ""
+"If you wish to quit a rating task before it is fully completed, you can "
+"return to finish the task later but you will need your participant ID-"
+"number in order to do that. Please save your participant ID before "
+"starting the rating task!"
+msgstr "如果您希望在完成评估任务之前退出评级任务，您可以返回以后完成任务，但是需要您的参与者ID号才能执行此操作。 请在开始评级任务前保存您的参与者ID！"
+
+#: app/templates/instructions.html:17 app/templates/quit_task.html:11
+msgid "Your participant ID is:"
+msgstr "您的参与者ID是："
+
+#: app/templates/instructions.html:20
+msgid "Ready to start"
+msgstr "我准备开始了"
+
+#: app/templates/quit_task.html:8
+msgid ""
+"Please write down your participant ID so you can return and finish the "
+"rating task later!"
+msgstr "请记下您的参与者ID，以便稍后返回并完成评级任务！"
+
+#: app/templates/quit_task.html:14
+msgid "Quit!"
+msgstr "退出"
+
+#: app/templates/register.html:6
+msgid "This is the registration page."
+msgstr "这是注册页面。"
+
+#: app/templates/register.html:7
+msgid "Please fill in these background questions before starting the rating task:"
+msgstr "请在开始评分前填写以下相关的问题:"
+
+#: app/templates/register.html:14
+msgid "Please select"
+msgstr "请选择。"
+
+#: app/templates/register.html:22
+msgid "Submit"
+msgstr "提交"
+
+#: app/templates/task.html:143
+msgid "Quit task"
+msgstr "退出任务"
+
+#: app/templates/task.html:144
+msgid "Next page"
+msgstr "下一页"
+
+#: app/templates/task.html:148
+msgid ""
+"You can zoom in/out the page view by pressing ctrl+/ctrl- (Windows) or "
+"⌘+/⌘- (Mac)"
+msgstr "可以按 ctrl+/ctrl- (Windows) 或 ⌘+/⌘- (Mac) 扩大或缩小页面"
+
+#: app/templates/task_completed.html:7
+msgid "Task completed!"
+msgstr "任务完成了！"
+
+#: app/templates/task_completed.html:11
+msgid "You have completed the rating task. Thank you for your participation."
+msgstr "您已完成评级任务。 感谢您的参与 ：）"
+
+#: app/templates/test_page.html:7
+msgid "File Not Found"
+msgstr ""
+
+#~ msgid "ID number:"
+#~ msgstr ""
+
+#~ msgid "Language:"
+#~ msgstr ""
+
+#~ msgid "Status:"
+#~ msgstr ""
+
+#~ msgid "Welcome to Onni"
+#~ msgstr "欢迎"
+
+#~ msgid ""
+#~ "This is the Human Emotion Systems "
+#~ "laboratorys stimulus rating tool. If you"
+#~ " have previously started a rating "
+#~ "task you can continue that task on"
+#~ " this page. If you are a "
+#~ "researcher you can create new rating "
+#~ "tasks by logging in. Or you can"
+#~ " start a new rating task and "
+#~ "start rating by selecting a task "
+#~ "from the database list below."
+#~ msgstr "这是人类情感系统实验室刺激评级工具。如果您之前已经开始了一个评级工具，您可以在此页面继续该任务。如果您是一名研究员，您可以通过登录来创建新的评级任务。或者，您可以启动一个新的评级任务，并通过从下面的数据库列表中选择一个评级任务开始评级。"
+
+#~ msgid ""
+#~ "You can choose the language suitable "
+#~ "for you from the language menu in"
+#~ " the upper right corner"
+#~ msgstr ""
+
+#~ msgid "List of experiments in database:"
+#~ msgstr "数据库中的实验列表："
+
+#~ msgid "Research bulletin can be read"
+#~ msgstr ""
+
+#~ msgid "here."
+#~ msgstr ""
+

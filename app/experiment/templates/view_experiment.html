@@ -1,0 +1,418 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="container mt-5 display-4 text-left"><br>Experiment info:</h1>
+<br>
+
+
+<div class="container col-12">
+<table class="table">
+  <tbody>
+
+{% for exp in experiment_info %}
+<!-- Why there is a for loop her ?! -->
+
+    <tr>
+      <td nowrap>Name:</td>
+      <td>{{ exp.name }}</td>
+      <td>
+      <button type="button" class="btn btn-primary btn-block btn-sm btn-dark" data-toggle="modal" data-target="#myModal-remove">Remove experiment</button>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal-remove" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" id="modal-remove">
+          <!-- Modal content-->
+          <div class="modal-content modal-dialog-centered">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Notice!</h4>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to remove this experiment? All gathered ratings will be lost!</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <a class="btn btn-primary" href="{{ url_for('experiment.remove', exp_id=exp.idexperiment) }}" role="button">Yes, remove</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      </td>
+    </tr>
+    <tr>
+      <td nowrap>Status:</td>
+      <td>{{ exp.status }}</td>
+      <td>
+    {% if exp.status == 'Hidden' %}      
+      <a class="btn btn-primary btn-block btn-sm btn-info" href="{{ url_for('experiment.publish', exp_id=exp.idexperiment) }}" role="button">Publish (visible)</a>
+      <a class="btn btn-primary btn-block btn-sm btn-info" href="{{ url_for('experiment.private', exp_id=exp.idexperiment) }}" role="button">Publish (private)</a>
+      </td>
+    {% endif %}
+    {% if exp.status != 'Hidden' %}      
+      <a class="btn btn-primary btn-block btn-sm btn-info" href="{{ url_for('experiment.hide', exp_id=exp.idexperiment) }}" role="button">Unpublish</a></td>
+    {% endif %}
+    </tr>
+
+    <tr>
+      <td nowrap>Creator:</td>
+      <td>{{ exp.creator_name }} - {{ exp.creation_time }}</td>
+      <td nowrap></td>
+    </tr>
+    <tr>
+      <td nowrap>Group:</td>
+      <td>{{ group_info.name }}</td>
+      <td nowrap></td>
+    </tr>
+    <tr>
+      <td nowrap>Language:</td>
+      <td>{{ exp.language }}</td>
+      <td nowrap></td>
+    </tr>
+     <tr>
+      <td nowrap>Stimulus type:</td>
+      <td>{{ mtype.type }}</td>
+      <td nowrap></td>
+    </tr>
+     <tr>
+      <td nowrap>Stimulus size:</td>
+      <td>{{ exp.stimulus_size }}</td>
+      <td nowrap>
+      </td>
+    </tr>
+
+    <tr>
+      <td nowrap>Trial randomization:</td>
+      <td>{{ exp.randomization }}</td>
+      <td nowrap>
+    {% if exp.randomization == 'Off' %}      
+      <a class="btn btn-primary btn-block btn-sm btn-info" href="{{ url_for('experiment.randomization', exp_id=exp.idexperiment, set='On') }}" role="button">Enable</a></td>
+    {% endif %}
+    {% if exp.randomization == 'On' %}      
+      <a class="btn btn-primary btn-block btn-sm btn-info" href="{{ url_for('experiment.randomization', exp_id=exp.idexperiment, set='Off') }}" role="button">Disable</a></td>
+    {% endif %}
+
+    </td>
+    </tr>
+      <td nowrap>Use forced ID for participants:</td>
+      <td>{{ exp.use_forced_id }}</td>
+      <td nowrap>
+    {% if exp.use_forced_id == 'Off' %}      
+      <a class="btn btn-primary btn-block btn-sm btn-info" href="{{ url_for('experiment.set_forced_id', exp_id=exp.idexperiment, set='On') }}" role="button">Enable</a>
+      
+      
+    {% endif %}
+    {% if exp.use_forced_id == 'On' %}      
+      <a class="btn btn-primary w-50 btn-sm btn-info" href="{{ url_for('experiment.set_forced_id', exp_id=exp.idexperiment, set='Off') }}" role="button">Disable</a>
+      <a class="btn btn-primary w-50 btn-sm btn-info" href="{{ url_for('experiment.view_forced_id_list', exp_id=exp.idexperiment) }}" role="button">Check ID</a>
+    {% endif %}
+      
+    </td>
+    </tr>
+    <tr>
+    <td> Research bulletin:</td>   
+    <td> {{ exp.research_notification_filename }}</td>   
+    {% if exp.research_notification_filename  %}
+    <td> <a class="btn btn-primary btn-block btn-sm btn-info" href="{{ url_for('experiment.remove_research_notification', exp_id=exp.idexperiment) }}" role="button">Remove</a></td>   
+    {% else %}
+    <td> <a class="btn btn-primary btn-block btn-sm btn-info" href="{{ url_for('experiment.upload_research_notification', exp_id=exp.idexperiment) }}" role="button">Upload</a></td>   
+    {% endif %}
+    </tr>
+    
+    <tr>
+      <td nowrap>Detailed instructions:</td>
+      
+      
+      <td class="text-justify">{{ exp.instruction }}</td>
+      
+      <td nowrap>
+     <a class="btn btn-primary btn-block btn-sm btn-info" href="{{ url_for('experiment.edit', exp_id=exp.idexperiment) }}" role="button">Edit properties</a>
+    </td>
+    </tr>
+    <tr>
+      <td nowrap>Short description:</td>
+      <td class="text-justify">{{ exp.short_instruction }}</td>
+      <td nowrap></td>
+    </tr>
+
+    <tr>
+      <td nowrap>Single sentence instruction:</td>
+      <td>{{ exp.single_sentence_instruction }}</td>
+      <td nowrap></td>
+    </tr>
+
+    <tr>
+      <td nowrap>Consent form text:</td>
+      <td class="text-justify">{{ exp.consent_text }}</td>
+      <td nowrap></td>
+    </tr>
+    <tr>
+      <td nowrap>Experiment database ID:</td>
+      <td>{{ exp.idexperiment }}</td>
+      <td nowrap></td>
+    </tr>
+
+
+
+{% endfor %}
+  </tbody>
+</table>
+</div>
+
+
+
+<h1 class="container mt-5 display-4 text-left"><br>Background questions:</h1>
+<br>
+
+    {% for options in questions1 %}
+    
+    <table class="table">
+      <tbody>  
+      <tr>
+      <td class="col-11">
+        <label for="{{ options[0] }}">{{ options[1] }}</label>
+            <select required class="form-control" name="{{ options[0] }}">  
+                <option disabled selected value>Please select</option>
+                {% for op in questions1[options] %}
+                     <option value="{{ op[0] }}" name="{{ op[0] }}">{{ op[0] }}</option>
+                {% endfor %}   
+            </select>
+    </td>
+    <td class="text-nowrap align-bottom">
+    
+             <button type="button" class="btn btn-primary btn-sm btn-dark" data-toggle="modal" data-target="#myModal{{options[0]}}">Remove</button>
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal{{options[0]}}" role="dialog">
+                        <div class="modal-dialog modal-dialog-centered" id="{{options[0]}}">
+                          <!-- Modal content-->
+                          <div class="modal-content modal-dialog-centered">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <h4 class="modal-title">Notice!</h4>
+                            </div>
+                            <div class="modal-body">
+                              <p>Are you sure you want to remove this?</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                              <a class="btn btn-primary" href="{{ url_for('experiment.remove_bg_question', idbackground_question=options[0], exp_id=exp_id) }}" role="button">Yes, remove</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+    <a class="btn btn-primary btn-sm btn-info" href="{{ url_for('experiment.edit_bg_question', idbackground_question=options[0]) }}" role="button">Edit</a>
+
+    </td>
+    </tr>
+        
+       {% endfor %}
+    </tbody>
+    </table>
+    <table class="table">
+    <tbody>
+    <td class="text-nowrap align-bottom text-right col-8">
+    <a class="btn btn-primary btn-sm btn-info" href="{{ url_for('experiment.add_bg_question', exp_id=exp_id) }}" role="button">Add more</a>
+    </td>
+    </tbody>
+    </table>
+
+
+<h1 class="container mt-5 display-4 text-left"><br>Add embody tool:</h1>
+
+<table class="table">
+  <colgroup>
+    <col style="width:33%;%">
+    <col style="width:33%;%">
+    <col style="width:33%;%">
+  </colgroup>
+  <tr>
+    <td>Embody tool:</td>
+    <td> 
+
+    {% if embody_pictures|length > 0 and experiment_info[0].embody_enabled %}   
+      Enabled
+    {% else %}
+      Disabled
+    {% endif %}
+    </td>
+    <td>
+      <a class="btn btn-primary btn-block btn-sm btn-info" href="{{ url_for('experiment.add_embody', exp_id=exp_id) }}" role="button">Add new picture</a>
+    </td>
+  </tr>
+
+  {% for embody_picture in embody_pictures %}
+  <tr>
+    <td>ID: {{ embody_picture.idembody }} <br> {{ embody_picture.question }}</td> 
+    <td><img src="{{ embody_picture.picture }}" class="thumbnail" /></td>
+    <td><a class="btn btn-primary btn-block btn-sm btn-dark" href="{{ url_for('experiment.remove_embody', exp_id=exp_id, idembody=embody_picture.idembody) }}" role="button">Remove</a></td>
+  </tr>
+
+  {% endfor %}   
+
+</table>
+
+<hr>
+
+<h1 class="container mt-5 display-4 text-left"><br>Add questions:</h1>
+
+<hr>
+<br>    
+{% for category in categories1 %}
+    {% for scale in categories1[category] %}
+        <div class="row form-group">
+            <div class="col-2 text-center">
+                <p>{{ scale[0] }}</p> 
+            </div>
+            <div class="col text-center">
+                <label for="customRange">{{ category[1] }}</label>
+                <input type="range" class="custom-range" id="customRange" name={{ category[0] }}>
+              </div>
+            <div class="col-2 text-center">
+            <p>{{ scale[1] }}</p> 
+            </div>
+            <div class="col-2 text-center">
+            
+            
+                <button type="button" class="btn btn-primary btn-sm btn-dark" data-toggle="modal" data-target="#mymodal{{category[0]}}">Remove</button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="mymodal{{category[0]}}" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" id="{{category[0]}}">
+                      <!-- Modal content-->
+                      <div class="modal-content modal-dialog-centered">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Notice!</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are you sure you want to remove this?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                          <a class="btn btn-primary" href="{{ url_for('experiment.remove_question', idquestion=category[0], exp_id=exp_id) }}" role="button">Yes, remove</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            <a class="btn btn-primary btn-sm btn-info" href="{{ url_for('experiment.edit_question', idquestion=category[0]) }}" role="button">Edit</a>
+              
+            </div>
+
+        </div>
+      {% endfor %}   
+{% endfor %}
+
+    </table>
+    <table class="table">
+    <tbody>
+    <td class="text-nowrap align-bottom text-right col-8">
+    <a class="btn btn-primary btn-sm btn-info" href="{{ url_for('experiment.add_questions', exp_id=exp_id) }}" role="button">Add more</a>
+    </td>
+    </tbody>
+    </table>
+
+
+ <h1 class="container mt-5 display-4 text-left"><br>Stimuli:</h1>
+ <hr>
+
+  <p class="lead">Please notice that the Page ID is just the reference ID of the stimulus in the database. When stimulus randomization is set to "OFF"
+                  the stimulus will be presented in the order below even if there would be numbers missing from the page ID sequence.
+                  If randomization is set to "ON" the order will be randomized for each participant.
+  </p>
+ <br>   
+<div class="container col-12">
+ <table class="table col-12">
+  <tbody>
+    {% if mtype.type=='text' %}
+            {% for page in media %}
+                <tr class="col-12">
+                    <td class="text-nowrap">Page ID: {{ page.idpage }}
+                    </td>
+                    <td class="col-8">{{ page.text }}
+                    </td>
+                    <td class="col-2 text-nowrap">
+                    <button type="button" class="btn btn-primary btn-sm btn-dark" data-toggle="modal" data-target="#mymodal{{page.idpage}}">Remove</button>
+                      <!-- Modal -->
+                      <div class="modal fade" id="mymodal{{page.idpage}}" role="dialog">
+                        <div class="modal-dialog modal-dialog-centered" id="{{page.idpage}}">
+                          <!-- Modal content-->
+                          <div class="modal-content modal-dialog-centered">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <h4 class="modal-title">Notice!</h4>
+                            </div>
+                            <div class="modal-body">
+                              <p>Are you sure you want to remove this?</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                              <a class="btn btn-primary" href="{{ url_for('experiment.remove_stimuli', idpage=page.idpage, exp_id=exp_id) }}" role="button">Yes, remove</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                     <a class="btn btn-primary btn-sm btn-info" href="{{ url_for('experiment.edit_stimuli', idpage=page.idpage, exp_id=exp_id) }}" role="button">Edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            
+                  <table class="table">
+                  <tbody>
+                  <td class="text-nowrap align-bottom text-right col-8">
+                  <a class="btn btn-primary btn-sm btn-info" href="{{ url_for('experiment.add_stimuli', exp_id=exp_id, stimulus_type=mtype.type) }}" role="button">Add more</a>
+                  </td>
+                  </tbody>
+                  </table>
+   
+    {% else %}
+        <div class="container col-12">
+            {% for page in media %}
+                <tr class="col-12 text-left">
+                    <td class="col-2 text-nowrap">Page ID: {{ page.idpage }}
+                    </td>
+                    <td class="col-8" >{{ page.media }}
+                    </td>
+                    <td class="col-2 text-nowrap">
+                    <button type="button" class="btn btn-primary btn-sm btn-dark" data-toggle="modal" data-target="#mymodal{{page.idpage}}">Remove</button>
+                      <!-- Modal -->
+                      <div class="modal fade" id="mymodal{{page.idpage}}" role="dialog">
+                        <div class="modal-dialog modal-dialog-centered" id="{{page.idpage}}">
+                          <!-- Modal content-->
+                          <div class="modal-content modal-dialog-centered">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <h4 class="modal-title">Notice!</h4>
+                            </div>
+                            <div class="modal-body">
+                              <p>Are you sure you want to remove this?</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                              <a class="btn btn-primary" href="{{ url_for('experiment.remove_stimuli', idpage=page.idpage, exp_id=exp_id) }}" role="button">Yes, remove</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                     <a class="btn btn-primary btn-sm btn-info" href="{{ url_for('experiment.edit_stimuli', idpage=page.idpage, exp_id=exp_id) }}" role="button">Replace</a>
+                 
+                    </td>
+                </tr>
+            {% endfor %}
+            
+                          <table class="table">
+                  <tbody>
+                  <td class="text-nowrap align-bottom text-right col-8">
+                  <a class="btn btn-primary btn-sm btn-info" href="{{ url_for('experiment.add_stimuli', exp_id=exp_id, stimulus_type=mtype.type) }}" role="button">Add more</a>
+                  </td>
+                  </tbody>
+                  </table>    
+        
+    {% endif %}
+
+    </tbody>
+    </table>
+    
+    </div>
+    <br>
+ 
+
+    
+{% endblock %}

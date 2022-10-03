@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+      
+<h1 class="container mt-5 display-4"><br> {{ experiment_info.name }}</h1>
+<br>
+
+
+{% for para in instruction_paragraphs %}
+<p class="lead text-justify">{{ para }}</p>
+{% endfor %}
+
+
+<br>
+
+<h3>{{ _('Consent for participation:') }}</h3>
+
+{% if experiment_info.research_notification_filename  %}
+<h5> <a href="{{ url_for('view_research_notification', exp_id=experiment_info.idexperiment) }}">{{ _('Research bulletin can be read here') }} </a></h5>
+{% endif %}
+
+{% for para in consent_paragraphs %}
+<p class="lead text-justify">{{ para }}</p>
+{% endfor %}
+
+
+
+ <a class="btn btn-primary" href="{{ url_for('participant_session', exp_id=exp_id, agree='true') }}" role="button">{{ _('Agree') }}</a>
+ <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">{{ _('Disagree') }}</button>
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <!-- Modal content-->
+              <div class="modal-content modal-dialog-centered">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">{{ _('Notice!') }}</h4>
+                </div>
+                <div class="modal-body">
+                  <p>{{ _('In order to participate for the study you need to agree with the terms presented.') }}</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">{{ _('Close Notice') }}</button>
+                  <a class="btn btn-primary" href="/" role="button">{{ _('Return Home') }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+{% endblock %}
+
+
+

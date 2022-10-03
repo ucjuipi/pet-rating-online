@@ -1,0 +1,276 @@
+# Persian translations for PROJECT.
+# Copyright (C) 2018 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2018-12-21 11:49+0200\n"
+"PO-Revision-Date: 2018-11-27 16:38+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fa\n"
+"Language-Team: fa <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: app/forms.py:36
+msgid "Continue rating"
+msgstr "ادامه امتیازدهی"
+
+#: app/forms.py:41
+msgid "Start rating"
+msgstr "برای شروع آزمایش آماده ام"
+
+#: app/routes.py:371
+msgid "ID already in use"
+msgstr "این شناسه در حال حاضر در حال استفاده است"
+
+#: app/routes.py:380
+msgid "No such ID set for this experiment"
+msgstr "چنین شناسه ای برای این آزمایش تعیین نشده است."
+
+#: app/templates/base.html:35
+msgid "Task progress:"
+msgstr "پیشرفت کار:"
+
+#: app/templates/begin_with_id.html:8
+msgid "Please insert your ID-code below:"
+msgstr "لطفا شناسه خود را اینجا وارد کنید:"
+
+#: app/templates/begin_with_id.html:12 app/templates/consent.html:38
+#: app/templates/instructions.html:12 app/templates/quit_task.html:4
+#: app/templates/quit_task.html:7
+msgid "Notice!"
+msgstr "توجه!"
+
+#: app/templates/begin_with_id.html:13
+msgid ""
+"Participation in this experiment requires a login with a predetermined ID"
+" code. Please input ID below."
+msgstr ""
+"شرکت در این آزمایش نیاز به ورود به سامانه از طربق یک کد شناسایی از پیش "
+"تعیین شده دارد. لطفا  کد شناسایی را در زیر وارد کنید."
+
+#: app/templates/consent.html:17
+msgid "Consent for participation:"
+msgstr "موافقت برای مشارکت:"
+
+#: app/templates/consent.html:20
+msgid "Research bulletin can be read here"
+msgstr "تحریریه تحقیقاتی را می توان در اینجا مطالعه کرد."
+
+#: app/templates/consent.html:29
+msgid "Agree"
+msgstr "موافقم"
+
+#: app/templates/consent.html:30
+msgid "Disagree"
+msgstr "موافق نیستم"
+
+#: app/templates/consent.html:41
+msgid ""
+"In order to participate for the study you need to agree with the terms "
+"presented."
+msgstr "برای شرکت در این آزمایش باید موافقت خود را با این موارد اعلام کنید."
+
+#: app/templates/consent.html:44
+msgid "Close Notice"
+msgstr "بستن توجه"
+
+#: app/templates/consent.html:45 app/templates/task_completed.html:15
+msgid "Return Home"
+msgstr "بازگشت به صفحه اصلی"
+
+#: app/templates/continue_task.html:9
+msgid "Please insert your participant ID:"
+msgstr "لطفا شناسه خود را اینجا وارد کنید:"
+
+#: app/templates/index.html:18
+msgid "Welcome to the Human Emotion Systems -laboratory`s Onni-net laboratory! The experiments that are currently underway are listed below - you can participate for as many experiments you want."
+msgstr "به تحقیق ...از گروه تحقیقاتی احساسات انسانها خوش آمدید. تحقیقاتی که در حال حاضرقابل انجام هستند در زیر ذکر شده است. شما می توانید درهر تعداد ازاین تحقیقات که مایل هستید شرکت کنید."
+
+#: app/templates/index.html:20
+msgid ""
+"If you are participating for a study for the first time, click on the "
+"\"Begin task\" -button. If you are returning to continue \n"
+"      a previously started task, click on the \"Continue task\" button."
+msgstr "اگر برای اولین بار در یک تحقیق شرکت میکنید، روی دکمه «شروع کار» کلیک کنید. اگرقصد بازگشت به یک تحقیق که قبلا شروع کرده اید دارید، دوباره روی دکمه \"ادامه کار\" کلیک کنید."
+
+#: app/templates/index.html:23
+msgid ""
+"You can choose the language suitable for you from the language menu in "
+"the upper right corner."
+msgstr ""
+"شما می توانید زبان مورد نظر خود را از منوی زبان در گوشه سمت راست بالا "
+"انتخاب کنید"
+
+#: app/templates/index.html:29
+msgid "List of experiments:"
+msgstr "لیست تحقیقات موجود در بانک اطلاعاتی::"
+
+#: app/templates/index.html:36 app/templates/index.html:77
+msgid "Name:"
+msgstr "نام:"
+
+#: app/templates/index.html:37 app/templates/index.html:78
+msgid "Instruction:"
+msgstr "دستورالعمل:"
+
+#: app/templates/index.html:50 app/templates/index.html:93
+msgid "Participation ID is required for this task."
+msgstr "داشتن کد شناسایی برای انجام این مرحله ضروری می باشد."
+
+#: app/templates/index.html:56 app/templates/index.html:99
+msgid "Begin task"
+msgstr "آزمایش را شروع کنید"
+
+#: app/templates/index.html:57 app/templates/index.html:100
+msgid "Continue task"
+msgstr "ادامه آزمایش"
+
+#: app/templates/index.html:61 app/templates/index.html:104
+msgid "AdminRun"
+msgstr ""
+
+#: app/templates/index.html:62 app/templates/index.html:105
+msgid "Statistics"
+msgstr ""
+
+#: app/templates/index.html:63 app/templates/index.html:106
+msgid "View / Edit"
+msgstr ""
+
+#: app/templates/instructions.html:4
+msgid "Instructions:"
+msgstr "دستورالعمل:"
+
+#: app/templates/instructions.html:14
+msgid ""
+"If you wish to quit a rating task before it is fully completed, you can "
+"return to finish the task later but you will need your participant ID-"
+"number in order to do that. Please save your participant ID before "
+"starting the rating task!"
+msgstr ""
+"چنانچه مایل به خروج از بخش امتیازدهی پیش از تکمیل این بخش می باشید شما می"
+" توانید بعدا به منظور اتمام این بخش به این صفحه برگردید. برای انجام این "
+"کار شما به کد شناسایی خود نیاز دارید. لذا لطفا پیش از شروع آزمایش کد "
+"شناسایی خود را ذخیره کنید. "
+
+#: app/templates/instructions.html:17 app/templates/quit_task.html:11
+msgid "Your participant ID is:"
+msgstr "کد شناسایی شما"
+
+#: app/templates/instructions.html:20
+msgid "Ready to start"
+msgstr "برای شروع آزمایش آماده ام"
+
+#: app/templates/quit_task.html:8
+msgid ""
+"Please write down your participant ID so you can return and finish the "
+"rating task later!"
+msgstr ""
+"لطفا شناسه خود را یادداشت نمایید تا در صورت نیاز در زمان دیگری امتیازدهی "
+"را به اتمام برسانید"
+
+#: app/templates/quit_task.html:14
+msgid "Quit!"
+msgstr "خروج"
+
+#: app/templates/register.html:6
+msgid "This is the registration page."
+msgstr "صفحه ثبت نام"
+
+#: app/templates/register.html:7
+msgid "Please fill in these background questions before starting the rating task:"
+msgstr "لطفا قبل از شروع امتیازدهی به سوالات زمینه پاسخ دهید"
+
+#: app/templates/register.html:14
+msgid "Please select"
+msgstr "لطفا انتخاب کنید"
+
+#: app/templates/register.html:22
+msgid "Submit"
+msgstr "ارسال"
+
+#: app/templates/task.html:143
+msgid "Quit task"
+msgstr "خروج از آزمایش"
+
+#: app/templates/task.html:144
+msgid "Next page"
+msgstr "صفحه بعد"
+
+#: app/templates/task.html:148
+msgid ""
+"You can zoom in/out the page view by pressing ctrl+/ctrl- (Windows) or "
+"⌘+/⌘- (Mac)"
+msgstr ""
+"شما می توانید با فشار دادن ctrl + / ctrl- (ویندوز) یا ⌘ + / ⌘- (مکینتاش) "
+"بزرگنمایی صفحه نمایش را  تنظیم کنید."
+
+#: app/templates/task_completed.html:7
+msgid "Task completed!"
+msgstr "عملیات با موفقیت انجام شد!"
+
+#: app/templates/task_completed.html:11
+msgid "You have completed the rating task. Thank you for your participation."
+msgstr "بخش امتیازدهی با موفقیت انجام شد. سپاس ازمشارکت شما در این بخش"
+
+#: app/templates/test_page.html:7
+msgid "File Not Found"
+msgstr ""
+
+#~ msgid "ID number:"
+#~ msgstr ""
+
+#~ msgid "Language:"
+#~ msgstr ""
+
+#~ msgid "Status:"
+#~ msgstr ""
+
+#~ msgid "Welcome to Onni"
+#~ msgstr "خوش آمدید"
+
+#~ msgid ""
+#~ "This is the Human Emotion Systems "
+#~ "laboratorys stimulus rating tool. If you"
+#~ " have previously started a rating "
+#~ "task you can continue that task on"
+#~ " this page. If you are a "
+#~ "researcher you can create new rating "
+#~ "tasks by logging in. Or you can"
+#~ " start a new rating task and "
+#~ "start rating by selecting a task "
+#~ "from the database list below."
+#~ msgstr ""
+#~ "این صفحه مربوط به  امتیازدهی به "
+#~ "محرک ها در گروه تحقیقاتی سیسنم "
+#~ "احساسات انسانها می باشد. چنانچه شما "
+#~ "قبلا وارد این سامانه شده اید "
+#~ "میتوانید در این صفحه به ادامه "
+#~ "بپردازید. اگر شما یکی از پژوهشگرهای "
+#~ "گروه هستید می توانید با ورود به"
+#~ " سامانه سیستم امتیازدهی خود را طراحی"
+#~ " کنید."
+
+#~ msgid ""
+#~ "You can choose the language suitable "
+#~ "for you from the language menu in"
+#~ " the upper right corner"
+#~ msgstr ""
+
+#~ msgid "List of experiments in database:"
+#~ msgstr "لیست تحقیقات موجود در بانک اطلاعاتی::"
+
+#~ msgid "Research bulletin can be read"
+#~ msgstr "تحریریه تحقیقاتی را می توان در اینجا مطالعه کرد."
+
+#~ msgid "here."
+#~ msgstr "کلیک"
+

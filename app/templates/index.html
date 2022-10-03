@@ -1,0 +1,273 @@
+{% extends "base.html" %}
+{% block content %}
+  
+        
+      
+      <div class="container text-center col-4 mt-5 pt-5">
+      
+      <img class="img-fluid" src="/static/img/onni_LOGO-RGB-transparent_bg_cut.png" alt="Logo">
+      
+      </div>
+
+      <p class="lead text-center mt-5 font-weight-bold">{{_(group.description)}}</p>
+
+      <p class="lead text-center mt-5">{{ _('If you are participating for a study for the first time, click on the "Begin task" -button. If you are returning to continue 
+      a previously started task, click on the "Continue task" button.') }}</p>
+
+      <p class="lead text-center">{{ _('You can choose the language suitable for you from the language menu in the upper right corner.') }}</p>
+
+      </p>
+        <div class="row">
+            <div class="col mt-5">
+                
+                <p class="lead text-left mt-3 font-weight-bold">{{ _('List of experiments:') }}</p>
+                    {% block attributes %}
+                    {% for exp in experiments %}
+
+                    {% if exp.status == 'Public' and session['language'] == exp.language %}
+                    
+                     <ul class="list-group mb-3">
+                         <li class="list-group-item active"><span class="font-weight-bold">{{ _('Name:') }}</span> {{ exp.name }} </li>
+                         <li class="list-group-item"><span class="font-weight-bold">{{ _('Instruction:') }}</span> 
+                         
+                         {% autoescape false %}
+                         {{ exp.short_instruction }}</li>
+                         {% endautoescape %}
+                        
+                        {% if current_user.is_authenticated %}
+                        <li class="list-group-item"><span class="font-weight-bold">ID number:</span> {{ exp.idexperiment }} </li>
+                        <li class="list-group-item"><span class="font-weight-bold">Language:</span> {{ exp.language }}</li>
+                        <li class="list-group-item"><span class="font-weight-bold">Status:</span> {{ exp.status }}</li>
+                        {% endif %}
+                        
+                        {% if exp.use_forced_id == 'On'%}
+                        <li class="list-group-item"><span class="font-weight-bold">{{ _('Participation ID is required for this task.') }}</li>
+                        {% endif %}
+                        
+                        <li class="list-group-item">
+                        
+                        
+                        <a class="btn btn-outline-primary" href="{{ url_for('consent', exp_id=exp.idexperiment) }}" role="button">{{ _('Begin task') }}</a>
+                        <a class="btn btn-outline-primary" href="{{ url_for('task.continue_task', exp_id=exp.idexperiment) }}" role="button">{{ _('Continue task') }}</a>
+                        
+                            {% if current_user.is_authenticated %}
+                            <span class="text-right">
+                            <a class="btn btn-outline-info" href="{{ url_for('admin_dryrun', exp_id=exp.idexperiment) }}" role="button">{{ _('AdminRun') }}</a>
+                            <a class="btn btn-outline-info" href="{{ url_for('experiment.statistics', exp_id=exp.idexperiment) }}" role="button">{{ _('Statistics') }}</a>
+                            <a class="btn btn-outline-info" href="{{ url_for('experiment.view', exp_id=exp.idexperiment) }}" role="button">{{ _('View / Edit') }}</a>
+                            
+                            {% endif %}
+                       
+                        </li>
+                     </ul>
+                    <br>
+                    <br>
+                    {% endif %}
+                    
+                    
+                    {% if exp.status == 'Public' and session['language'] == "All" %}
+                    
+                     <ul class="list-group mb-4">
+                         <li class="list-group-item active"><span class="font-weight-bold">{{ _('Name:') }}</span> {{ exp.name }} </li>
+                         <li class="list-group-item"><span class="font-weight-bold">{{ _('Instruction:') }}</span> 
+                         
+                         {% autoescape false %}
+                         {{ exp.short_instruction }}</li>
+                         {% endautoescape %}
+                         
+                        {% if current_user.is_authenticated %}
+                        <li class="list-group-item"><span class="font-weight-bold">ID number:</span> {{ exp.idexperiment }} </li>
+                        <li class="list-group-item"><span class="font-weight-bold">Language:</span> {{ exp.language }}</li>
+                        <li class="list-group-item"><span class="font-weight-bold">Status:</span> {{ exp.status }}</li>
+                        {% endif %}
+                        {% if exp.use_forced_id == 'On'%}
+                        <li class="list-group-item"><span class="font-weight-bold">{{ _('Participation ID is required for this task.') }}</li>
+                        {% endif %}
+
+
+                        <li class="list-group-item">
+
+                        <a class="btn btn-outline-primary" href="{{ url_for('consent', exp_id=exp.idexperiment) }}" role="button">{{ _('Begin task') }}</a>
+                        <a class="btn btn-outline-primary" href="{{ url_for('task.continue_task', exp_id=exp.idexperiment) }}" role="button">{{ _('Continue task') }}</a>
+                        
+                            {% if current_user.is_authenticated %}
+                            <span class="text-right">    
+                            <a class="btn btn-outline-info" href="{{ url_for('admin_dryrun', exp_id=exp.idexperiment) }}" role="button">{{ _('AdminRun') }}</a>
+                            <a class="btn btn-outline-info" href="{{ url_for('experiment.statistics', exp_id=exp.idexperiment) }}" role="button">{{ _('Statistics') }}</a>
+                            <a class="btn btn-outline-info" href="{{ url_for('experiment.view', exp_id=exp.idexperiment) }}" role="button">{{ _('View / Edit') }}</a>
+                            
+                            {% endif %}
+                       
+                        </li>
+                     </ul>
+                    <br>
+                    <br>
+                    {% endif %}
+                    
+                    
+                    {% if (exp.status == 'Private') and (current_user.is_authenticated) and session['language'] == exp.language  %}
+                    <br>
+                    <h3>Private experiment:</h3>
+                     <ul class="list-group mb-4">
+                        <li class="list-group-item list-group-item-info"><span class="font-weight-bold">Name:</span> {{ exp.name }} </li>
+                        <li class="list-group-item"><span class="font-weight-bold">Instruction:</span> 
+                        
+                         {% autoescape false %}
+                         {{ exp.short_instruction }}</li>
+                         {% endautoescape %}
+                        
+                        
+                        
+                        {% if current_user.is_authenticated %}
+                        <li class="list-group-item"><span class="font-weight-bold">ID number:</span> {{ exp.idexperiment }} </li>
+                        <li class="list-group-item"><span class="font-weight-bold">Language:</span> {{ exp.language }}</li>
+                        <li class="list-group-item"><span class="font-weight-bold">Status:</span> {{ exp.status }}</li>
+                        {% endif %}
+                        {% if exp.use_forced_id == 'On'%}
+                        <li class="list-group-item"><span class="font-weight-bold">Participation ID is required for this task.</li>
+                        {% endif %}
+
+
+                        <li class="list-group-item">
+                        <a class="btn btn-outline-primary" href="{{ url_for('consent', exp_id=exp.idexperiment) }}" role="button">Begin task</a>
+                        <a class="btn btn-outline-primary" href="{{ url_for('task.continue_task', exp_id=exp.idexperiment) }}" role="button">Continue task</a>
+                            {% if current_user.is_authenticated %}
+                            
+                            <a class="btn btn-outline-info" href="{{ url_for('admin_dryrun', exp_id=exp.idexperiment) }}" role="button">AdminRun</a>
+                            <a class="btn btn-outline-info" href="{{ url_for('experiment.statistics', exp_id=exp.idexperiment) }}" role="button">Statistics</a>
+                            <a class="btn btn-outline-info" href="{{ url_for('experiment.view', exp_id=exp.idexperiment) }}" role="button">View / Edit</a>
+                            
+                            
+                            {% endif %}
+                        </li>
+                     </ul>
+                    
+                    {% endif %}
+
+
+                    {% if (exp.status == 'Private') and (current_user.is_authenticated) and session['language'] == "All"  %}
+                    <br>
+                    <h3>Private experiment:</h3>
+                     <ul class="list-group mb-4">
+                        <li class="list-group-item list-group-item-info"><span class="font-weight-bold">Name:</span> {{ exp.name }} </li>
+                        <li class="list-group-item"><span class="font-weight-bold">Instruction:</span> 
+                        
+                        
+                         {% autoescape false %}
+                         {{ exp.short_instruction }}</li>
+                         {% endautoescape %}
+                        
+                        
+                        {% if current_user.is_authenticated %}
+                        <li class="list-group-item"><span class="font-weight-bold">ID number:</span> {{ exp.idexperiment }} </li>
+                        <li class="list-group-item"><span class="font-weight-bold">Language:</span> {{ exp.language }}</li>
+                        <li class="list-group-item"><span class="font-weight-bold">Status:</span> {{ exp.status }}</li>
+                        {% endif %}
+                        {% if exp.use_forced_id == 'On'%}
+                        <li class="list-group-item"><span class="font-weight-bold">Participation ID is required for this task.</li>
+                        {% endif %}
+
+
+                        <li class="list-group-item">
+                        <a class="btn btn-outline-primary" href="{{ url_for('consent', exp_id=exp.idexperiment) }}" role="button">Begin task</a>
+                        <a class="btn btn-outline-primary" href="{{ url_for('task.continue_task', exp_id=exp.idexperiment) }}" role="button">Continue task</a>
+                            {% if current_user.is_authenticated %}
+                            
+                            <a class="btn btn-outline-info" href="{{ url_for('admin_dryrun', exp_id=exp.idexperiment) }}" role="button">AdminRun</a>
+                            <a class="btn btn-outline-info" href="{{ url_for('experiment.statistics', exp_id=exp.idexperiment) }}" role="button">Statistics</a>
+                            <a class="btn btn-outline-info" href="{{ url_for('experiment.view', exp_id=exp.idexperiment) }}" role="button">View / Edit</a>
+                            
+                            
+                            {% endif %}
+                        </li>
+                     </ul>
+                    
+                    {% endif %}
+                    
+                    
+                    {% if (exp.status == 'Hidden') and (current_user.is_authenticated) and session['language'] == exp.language  %}
+                    <br>
+                    <h3>Unpublished experiment:</h3>
+                     <ul class="list-group mb-4">
+                        <li class="list-group-item list-group-item-dark"><span class="font-weight-bold">Name:</span> {{ exp.name }} </li>
+                        <li class="list-group-item"><span class="font-weight-bold">Instruction:</span> 
+                        
+                         {% autoescape false %}
+                         {{ exp.short_instruction }}</li>
+                         {% endautoescape %}
+                        
+                        
+                        
+                        {% if current_user.is_authenticated %}
+                        <li class="list-group-item"><span class="font-weight-bold">ID number:</span> {{ exp.idexperiment }} </li>
+                        <li class="list-group-item"><span class="font-weight-bold">Language:</span> {{ exp.language }}</li>
+                        <li class="list-group-item"><span class="font-weight-bold">Status:</span> {{ exp.status }}</li>
+                        {% endif %}
+                        {% if exp.use_forced_id == 'On'%}
+                        <li class="list-group-item"><span class="font-weight-bold">Participation ID is required for this task.</li>
+                        {% endif %}
+
+
+                        <li class="list-group-item">
+                        <a class="btn btn-outline-primary" href="{{ url_for('consent', exp_id=exp.idexperiment) }}" role="button">Begin task</a>
+                        <a class="btn btn-outline-primary" href="{{ url_for('task.continue_task', exp_id=exp.idexperiment) }}" role="button">Continue task</a>
+                            {% if current_user.is_authenticated %}
+                            
+                            <a class="btn btn-outline-info" href="{{ url_for('admin_dryrun', exp_id=exp.idexperiment) }}" role="button">AdminRun</a>
+                            <a class="btn btn-outline-info" href="{{ url_for('experiment.statistics', exp_id=exp.idexperiment) }}" role="button">Statistics</a>
+                            <a class="btn btn-outline-info" href="{{ url_for('experiment.view', exp_id=exp.idexperiment) }}" role="button">View / Edit</a>
+                            
+                            
+                            {% endif %}
+                        </li>
+                     </ul>
+                    
+                    {% endif %}
+
+
+                    {% if (exp.status == 'Hidden') and (current_user.is_authenticated) and session['language'] == "All"  %}
+                    <br>
+                    <h3>Unpublished experiment:</h3>
+                     <ul class="list-group mb-4">
+                        <li class="list-group-item list-group-item-dark"><span class="font-weight-bold">Name:</span> {{ exp.name }} </li>
+                        <li class="list-group-item"><span class="font-weight-bold">Instruction:</span> 
+                        
+                        
+                         {% autoescape false %}
+                         {{ exp.short_instruction }}</li>
+                         {% endautoescape %}
+                        
+                        
+                        {% if current_user.is_authenticated %}
+                        <li class="list-group-item"><span class="font-weight-bold">ID number:</span> {{ exp.idexperiment }} </li>
+                        <li class="list-group-item"><span class="font-weight-bold">Language:</span> {{ exp.language }}</li>
+                        <li class="list-group-item"><span class="font-weight-bold">Status:</span> {{ exp.status }}</li>
+                        {% endif %}
+                        {% if exp.use_forced_id == 'On'%}
+                        <li class="list-group-item"><span class="font-weight-bold">Participation ID is required for this task.</li>
+                        {% endif %}
+
+
+                        <li class="list-group-item">
+                        <a class="btn btn-outline-primary" href="{{ url_for('consent', exp_id=exp.idexperiment) }}" role="button">Begin task</a>
+                        <a class="btn btn-outline-primary" href="{{ url_for('task.continue_task', exp_id=exp.idexperiment) }}" role="button">Continue task</a>
+                            {% if current_user.is_authenticated %}
+                            
+                            <a class="btn btn-outline-info" href="{{ url_for('admin_dryrun', exp_id=exp.idexperiment) }}" role="button">AdminRun</a>
+                            <a class="btn btn-outline-info" href="{{ url_for('experiment.statistics', exp_id=exp.idexperiment) }}" role="button">Statistics</a>
+                            <a class="btn btn-outline-info" href="{{ url_for('experiment.view', exp_id=exp.idexperiment) }}" role="button">View / Edit</a>
+                            
+                            
+                            {% endif %}
+                        </li>
+                     </ul>
+                    
+                    {% endif %}
+                     
+                    {% endfor %}
+                    {% endblock %}
+            </div>
+        </div>
+    
+
+{% endblock %}

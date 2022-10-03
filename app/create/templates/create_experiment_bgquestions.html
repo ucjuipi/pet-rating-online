@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+  
+        
+      <h1 class="container mt-5 display-4 text-center"><br>Create new experiment: (2/4)</h1>
+      <br>
+      <p class="lead">Please paste the background questions followed by the list of options for that question separated by ; into the field below. 
+      Mark the last option of the question with a /n after which you can again input a new question followed by a list of options.
+      <br>
+      <br>
+      <b>Here is an example input of two background questions:</b>
+      <br>
+      <br>
+      How many hours did you sleep last night?;6;7;8;9;10/n
+      Do you normally listen to audio books?;Yes;No
+      </p>
+
+  {% from "_formhelpers.html" import render_field %}
+
+
+<form  action="" method="post" role="form">
+<div class="form-group">
+  <label for="Background questions">Background questions and options:</label>
+  <textarea class="form-control" rows="15" id="bg_questions_and_options" name="bg_questions_and_options"></textarea>
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+{% endblock %}

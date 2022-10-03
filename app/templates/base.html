@@ -1,0 +1,120 @@
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/css/bootstrap.min.css') }}" ></link>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" ></link>
+    <script src="{{ url_for('static', filename='lib/js/jquery-3.3.1.js') }}" ></script>
+    <script src="{{ url_for('static', filename='lib/js/popper.min.js') }}" ></script>
+    <script src="{{ url_for('static', filename='lib/js/bootstrap.min.js') }}" ></script>
+    <title>Onni</title>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="/static/css/slider.css" rel="stylesheet">
+    
+  </head>
+  <body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand bg-light fixed-top">
+
+    {% if pages %}  
+
+        <div class="navbar-brand font-weight-light"><span class="text-primary font-weight-bold">ID:{{ session['user']}}</span>
+        </div>
+        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{ progress_bar_percentage }}%;" aria-valuemin="0" aria-valuemax="100">{{ _('Task progress:') }} {{   progress_bar_percentage }}%
+        </div>
+
+    {% else %}
+
+      <div class="col-1 navbar-brand">
+        <a href="{{ url_for('index') }}">
+        <img class="mt-1 mb-1" src="/static/img/onni_LOGO-horizontal-RGB-transparent_bg_cut.png" alt="Logo" height="40">
+        </a>
+
+        {% block navbar %}
+          {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                  {% for message in messages %}
+                      <a class="pl-5 text-align-center text-danger">{{ message }}</a>
+                  {% endfor %}
+              {% endif %}
+          {% endwith %}
+        {% endblock %}
+      </div>
+
+      {% if current_user.is_authenticated %}
+        <div class="col-11 text-primary text-right">
+          <a class="nav-item" href="{{ url_for('researcher_info') }}" class="nav-link">Info |</a>
+          <a class="nav-item" href="{{ url_for('create.create_experiment') }}" class="nav-link">Create |</a>
+          <a class="nav-item" href="" class="nav-link">Archives |</a>
+          <a class="nav-item" href="{{ url_for('logout') }}" class="nav-link">Logout |</a>
+
+          <a class="nav-item dropdown">
+          <a class="nav-item dropdown-toggle text-align-right" href="#" id="navbarDropdown_auth" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Language 
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown_auth">
+            <a class="dropdown-item" href="{{ url_for('set_language', language='Finnish', lang='fi') }}">Finnish</a>
+            <a class="dropdown-item" href="{{ url_for('set_language', language='English', lang='en') }}">English</a>
+            <a class="dropdown-item" href="{{ url_for('set_language', language='Persian', lang='fa') }}">Persian</a>
+            <a class="dropdown-item" href="{{ url_for('set_language', language='Greek',   lang='el') }}">Greek</a>
+            <a class="dropdown-item" href="{{ url_for('set_language', language='Italian', lang='it') }}">Italian</a>
+            <a class="dropdown-item" href="{{ url_for('set_language', language='Chinese', lang='zh') }}">Chinese</a>
+            <a class="dropdown-item" href="{{ url_for('set_language', language='All') }}">Show all</a>
+          </div>
+        </div>
+        
+        {% endif %}
+                  
+        {% if current_user.is_anonymous %}
+        
+        <div class="col-11 text-primary text-right">
+
+          <a class="nav-item" href="{{ url_for('login') }}" class="nav-link">Login |</a>
+
+          <a class="nav-item dropdown-toggle text-align-right" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Language
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ url_for('set_language', language='Finnish', lang='fi') }}">Finnish</a>
+            <a class="dropdown-item" href="{{ url_for('set_language', language='English', lang='en') }}">English</a>
+            <a class="dropdown-item" href="{{ url_for('set_language', language='Persian', lang='fa') }}">Persian</a>
+            <a class="dropdown-item" href="{{ url_for('set_language', language='Greek',   lang='el') }}">Greek</a>
+            <a class="dropdown-item" href="{{ url_for('set_language', language='Italian', lang='it') }}">Italian</a>
+            <a class="dropdown-item" href="{{ url_for('set_language', language='Chinese', lang='zh') }}">Chinese</a>
+          </div>
+        </div>
+                
+        {% endif %}
+      {% endif %}
+            
+    </nav>
+        
+    <main role="main" class="container">
+            {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+          <br>
+        <span class="text-muted">Developed by Timo Heikkilä | Human Emotion Systems Labratory, Turku PET Centre | <a href="http://emotion.utu.fi">emotion.utu.fi</a></span>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>
+
+
+        
+

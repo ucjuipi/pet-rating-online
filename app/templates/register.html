@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+
+<div class="container text-center mt-5">
+   <h1 class="display-4"><br>{{ _('This is the registration page.') }}</h1>
+   <p class="lead">{{ _('Please fill in these background questions before starting the rating task:') }}</p>
+</div>
+<form class="form-group" action="" method="post">
+    {% for options in form.questions1 %}
+    <div class="form-group">
+        <label for="{{ options[0] }}">{{ options[1] }}</label>
+            <select required class="form-control" name="{{ options[0] }}">  
+                <option disabled selected value>{{ _('Please select') }}</option>
+                {% for op in form.questions1[options] %}
+                     <option value="{{ op[0] }}" name="{{ op[0] }}">{{ op[0] }}</option>
+                {% endfor %}   
+            </select>  
+    </div>
+       {% endfor %}
+   <p> 
+   <button type="submit" class="btn btn-primary">{{ _('Submit') }}</button>
+   </p>
+</form>
+
+
+{% endblock %}
+
+

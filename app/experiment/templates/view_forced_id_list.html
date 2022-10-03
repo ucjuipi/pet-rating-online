@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+  
+        
+      <h1 class="container mt-5 display-4 text-center"><br>Forced ID login for participants:</h1>
+      <br>
+      <p class="lead">By using forced ID login subjects can only participate to a rating task by logging in with a pregenerated ID.
+      </p>
+    <br>
+
+    <form  action="" method="post" role="form">
+    <div class="form-inline">
+        <div class="form-group">
+             <label class="col-form-label"  for="number">Generate</label>
+             <input required type="number" min="0" class="form-control ml-2" name="number" id="number" placeholder="number">
+             <label class="col-form-label"  for="name">&nbsp;of random IDs starting with a</label>
+             <input type="text" class="form-control ml-2" name="string" id="string" placeholder="string">
+             <label class="col-form-label"  for="name">&nbsp;for this experiment -> </label>
+            <button type="submit" class="btn btn-primary ml-3">Generate IDs</button>
+        </div>
+    </div>
+    <br>
+    </form>
+ 
+<h4 class="text-left"><br>Usable participant IDs for this experiment:</h1>
+<br>
+
+
+<div class="container col-12">
+<table class="table">
+<tbody>
+
+
+{% for id in id_list %}
+
+<tr>
+<td>
+{{ id.pregenerated_id }}
+
+</td>
+</tr> 
+ 
+ 
+{% endfor %}
+
+</tbody>
+</table> 
+ 
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+  
+        
+<h1 class="container mt-5 display-4 text-center"><br>Edit experiment details:</h1>
+
+
+
+
+  <br>  
+  <br>
+  <p class="lead">Now editing experiment ID: {{ exp_id }}. All fields are required.
+  </p>
+  {% from "_formhelpers.html" import render_field %}
+    <div class=container"><br>
+    <div class="row align-items-center justify-content-center">
+    <div class="col-12">
+      <form  action="" method="post" role="form">
+        <div class="form-group">
+          <label for="Name">Name:</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder={{ form.name }}
+            <br>
+          <label for="Name">Creator:</label>
+          <input type="text" class="form-control" id="creator_name" name="creator_name" placeholder={{ form.creator_name }}
+            <br>
+          <label for="Instruction">Single sentence instruction:</label>
+          <input required type="text" class="form-control" id="instruction" name="single_sentence_instruction" placeholder= {{ form.single_sentence_instruction }}
+	    <br>
+          <label for="Instruction">Short description:</label>
+          <textarea required class="form-control" rows="5" id="short_instruction" name="short_instruction" placeholder= {{ form.short_instruction }} </textarea>
+	    <br>
+
+          <label for="Instruction">Long instructions:</label>
+          <textarea required class="form-control" rows="10" id="instruction" name="instruction" placeholder={{ form.instruction }} </textarea>
+	    <br>
+
+          <label for="Consent_form_text">Consent form text:</label>
+          <textarea required class="form-control" rows="10" id="consent_text" name="consent_text" placeholder={{ form.consent_text }} </textarea>
+	    <br>
+
+
+	   {{ render_field(form.language) }}
+	   {{ render_field(form.stimulus_size) }} <p>Note. When sizing text stimuli the size changes only in increments of 2 of this variable. 
+   	</div>
+        <br>													   
+          <button type="submit" class="btn btn-primary">Update</button>
+          <a class="btn btn-primary" href="{{ url_for('experiment.view', exp_id=exp_id) }}" role="button">Cancel</a>
+          
+        
+   </form>
+
+
+{% endblock %}

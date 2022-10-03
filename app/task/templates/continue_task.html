@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+      
+
+<div class="container text-center">
+<div class="row mt-5 display-4"><br></div>
+<br>
+
+<h1 class="mt-5 display-4"><br>{{ _('Please insert your participant ID:') }}</h1><br>
+
+
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.participant_id(size=32) }}<br>
+            {% for error in form.participant_id.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+
+    </form>
+</div>
+
+
+{% endblock %}

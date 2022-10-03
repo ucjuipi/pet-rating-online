@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="container mt-5 display-4 text-center"><br>Upload research bulletin:</h1>
+<br>
+<p class="lead"></p>
+  {% from "_formhelpers.html" import render_field %}
+  <form  id="UploadResearchBulletinForm" action="" method="POST" role="form" enctype="multipart/form-data">
+    <div class="input-group mb-3">
+    <legend>Add bulletin imagefile:</legend>
+    <div class="input-group-prepend">
+    <span class="input-group-text">Upload:</span>
+    </div>
+    <div class="custom-file">
+    <input type="file" class="custom-file-input" id="file" name="file" accept="image/*" required> 
+    <label class="custom-file-label" for="upload_file">Choose file</label>
+    </div>
+    </div>
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+   <br>  
+   <button type="submit" class="btn btn-primary">Submit</button>
+   <a class="btn btn-primary" href="{{ request.referrer }}" role="button">Cancel</a>
+</form>
+{% endblock %}
+
+

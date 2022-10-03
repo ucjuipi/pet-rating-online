@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+  
+        
+      <h1 class="container mt-5 display-4 text-center"><br>Add sliders:</h1>
+      <br>
+      <p class="lead">Please paste the slider set questions followed by the left and right ends of the scales separated with a ; Place a /n after the right scale to input another question
+      followed by the corresponding scales. Make sure you do not input the /n after the last question.
+      
+      <br>
+      <br>
+      <b>Here is an example input of two questions followed by their left (first) and right (second) ends of the scales:</b>
+      <br>
+      <br>
+      
+      Did the stimulus make you feel angry?; No; Yes /n
+      Did the stimulus make you feel happy; Not at all; Yes, alot
+      </p>
+
+
+
+
+
+{% from "_formhelpers.html" import render_field %}
+
+<form  action="" method="post" role="form">
+<div class="form-group">
+  <label for="questions_and_options">Question;left scale;right scale/n</label>
+  <textarea class="form-control" rows="15" id="questions_and_options" name="questions_and_options"></textarea>
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>
+<a class="btn btn-primary" href="{{ request.referrer }}" role="button">Cancel</a>
+</form>
+ 
+ 
+{% endblock %}

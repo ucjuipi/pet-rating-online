@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="container mt-5 display-4 text-center"><br>Edit experiment details:</h1>
+<br>  
+<br>
+<p class="lead">Please use following format: Question; Option1; Option2; Option3
+<br>
+<br>
+Note that there is no ; after the last option!
+</p>
+<form  action="" method="post" role="form">
+<div class="form-group">
+<label for="Background questions">Background question and its options:</label>
+<textarea class="form-control" rows="15" id="new_values" name="new_values" placeholder= {{ form.bg_questions_and_options }}</textarea>
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>
+<a class="btn btn-primary" href="{{ request.referrer }}" role="button">Cancel</a>
+</form>
+{% endblock %}
